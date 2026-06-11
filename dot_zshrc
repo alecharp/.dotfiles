@@ -1,4 +1,5 @@
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
+[[ -f $HOME/.exports ]] && source $HOME/.exports
 
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 eval "$(zoxide init zsh)"

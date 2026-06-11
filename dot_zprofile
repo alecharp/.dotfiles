@@ -1,0 +1,15 @@
+autoload -Uz compinit
+compinit
+
+source <(gh completion -s zsh)
+source <(docker completion zsh)
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(helmfile completion zsh)
+source <(mise completion zsh)
+source <(fzf --zsh)
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/alecharpentier/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:$HOME/.local/bin"
+
