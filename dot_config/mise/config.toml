@@ -1,5 +1,4 @@
 [tools]
-gcloud = "latest"
 java = "temurin-25"
 maven = "3.9"
 node = "lts"
