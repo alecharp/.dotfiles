@@ -1,0 +1,57 @@
+= Dotfiles
+:toc: left
+:icons: font
+
+Personal dotfiles managed with https://www.chezmoi.io/[chezmoi], covering shell (zsh), git, neovim, ghostty, mise, and GPG configuration.
+Secrets are GPG-encrypted and stored in the repository — a YubiKey is required to decrypt them on apply.
+
+== Setup a new environment
+
+=== Prerequisites
+
+[source,bash]
+----
+# macOS
+brew install chezmoi pinentry-mac
+
+# Linux (Arch/Omarchy)
+sudo pacman -S chezmoi pinentry
+----
+
+=== Apply dotfiles
+
+[source,bash]
+----
+chezmoi init --apply git@github.com:alecharp/.dotfiles.git
+----
+
+=== GPG & YubiKey
+
+The YubiKey must be plugged in during `chezmoi apply` to decrypt secrets.
+On a fresh machine, import the card stubs first:
+
+[source,bash]
+----
+gpg --card-status
+gpgconf --kill gpg-agent && gpgconf --launch gpg-agent
+----
+
+
+=== Re-authenticate tools
+
+These tools write their own credential files and are excluded from the repository:
+
+[source,bash]
+----
+gh auth login
+----
+
+=== JIRA credentials
+
+The JIRA API token is stored GPG-encrypted in the repository and generated into `~/.zshenv` on apply.
+The token is not loaded at shell startup — run `jira-auth` in your terminal when you need it:
+
+[source,bash]
+----
+jira-auth
+----
