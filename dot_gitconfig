@@ -4,11 +4,11 @@
   signingkey = FC01F3AB91173B6D
 
 [includeIf "gitdir:~/workspaces/alecharp/"]
-  path = "~/workspaces/alecharp/.gitconfig"
+  path = "~/.gitconfig_personal"
 [includeIf "gitdir:~/workspaces/jenkinsci/"]
-  path = "~/workspaces/jenkinsci/.gitconfig"
+  path = "~/.gitconfig_personal"
 [includeIf "gitdir:~/workspaces/jenkins-infra/"]
-  path = "~/workspaces/jenkins-infra/.gitconfig"
+  path = "~/.gitconfig_personal"
 
 
 [alias]
