@@ -1,23 +1,21 @@
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/.exports ]] && source $HOME/.exports
 
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
-gpgconf --launch gpg-agent
-
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# completions
 [[ -d "${HOME}/.docker/completions" ]] && fpath=("${HOME}/.docker/completions" $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-
-eval "$(zoxide init zsh)"
-rm ~/.zcompdump*; compinit
+source <(gh completion -s zsh)
+source <(docker completion zsh)
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(helmfile completion zsh)
+source <(mise completion zsh)
+source <(fzf --zsh)
+autoload -Uz compinit && compinit
 
 compdef _git gbs
-
