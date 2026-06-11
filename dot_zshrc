@@ -7,8 +7,7 @@ eval "$(starship init zsh)"
 
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
-# completions
-[[ -d "${HOME}/.docker/completions" ]] && fpath=("${HOME}/.docker/completions" $fpath)
+# completions — fpath must be set before compinit, compdef usable after
 autoload -Uz compinit && compinit
 source <(gh completion -s zsh)
 source <(docker completion zsh)
@@ -17,5 +16,4 @@ source <(helm completion zsh)
 source <(helmfile completion zsh)
 source <(mise completion zsh)
 source <(fzf --zsh)
-
 compdef _git gbs
