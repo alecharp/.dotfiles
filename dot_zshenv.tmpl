@@ -1,11 +1,3 @@
 export JIRA_USERNAME="{{ .jira_username }}"
 export JIRA_AUTH_TYPE="basic"
-{{- $token := "" }}
-{{- if eq .chezmoi.os "darwin" }}
-{{-   $result := output "sh" "-c" "security find-generic-password -s chezmoi-jira-api-token -w 2>/dev/null; exit 0" }}
-{{-   $token = $result | trim }}
-{{- else }}
-{{-   $result := output "sh" "-c" "secret-tool lookup service chezmoi-jira-api-token username {{ .jira_username }} 2>/dev/null; exit 0" }}
-{{-   $token = $result | trim }}
-{{- end }}
-export JIRA_API_TOKEN="{{ $token }}"
+export JIRA_API_TOKEN="{{ includeTemplate "encrypted_jira-api-token.asc" . | decrypt | trim }}"
