@@ -1,5 +1,4 @@
 # Secrets
-.zshenv
 .vault-token
 .secrets-api
 .claude.json
