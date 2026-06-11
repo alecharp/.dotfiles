@@ -1,0 +1,97 @@
+[user]
+  name = Adrien Lecharpentier
+{{ if eq .chezmoi.hostname "cloudbees-core" -}}
+  email = alecharpentier@cloudbees.com
+  signingkey = FC01F3AB91173B6D
+{{- else -}}
+  email = adrien.lecharpentier@gmail.com
+  signingkey = DE9A280C8EF8A788C8A7A17D4C70D6E1B912711B
+{{- end }}
+
+[includeIf "gitdir:~/workspaces/alecharp/"]
+  path = "~/.gitconfig_personal"
+[includeIf "gitdir:~/workspaces/jenkinsci/"]
+  path = "~/.gitconfig_personal"
+[includeIf "gitdir:~/workspaces/jenkins-infra/"]
+  path = "~/.gitconfig_personal"
+
+
+[alias]
+  br = "branch"
+  ci = "commit"
+  amend = "commit --amend --no-edit"
+  fix = "commit --fixup"
+
+  st = "status -u"
+  s =  "status -su --branch"
+
+  co = "checkout"
+  sw = "switch"
+  l = "log --oneline"
+
+  di = "diff"
+
+[color]
+  ui = auto
+[color "status"]
+  added = "green"
+  changed = "yellow"
+  untracked = "white"
+  ignored = "blue"
+[color "diff"]
+  meta = "yellow"
+
+[column]
+  ui = "auto"
+
+[commit]
+  gpgsign = true
+  cleanup = "strip"
+
+[tag]
+  gpgsign = true
+
+[core]
+  editor = "nvim"
+  autocrlf = false
+  safecrlf = true
+  ignorecase = false
+  excludesfile = "~/.gitignore"
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[init]
+  defaultBranch = "main"
+
+[pull]
+  rebase = merges
+  prune = true
+
+[push]
+  autoSetupRemote = true
+  default = upstream
+
+[rebase]
+  autosquash = true
+  autostash = true
+
+[status]
+  aheadBehind = true
+  showUntrackedFiles = normal
+
+[rerere]
+  enabled = true
+
+[diff]
+  submodule = log
+
+[submodule]
+  recurse = true
+
+{{ if lookPath "opscore" -}}
+[secrets]
+  providers = opscore security run git-secrets-provider -q
+{{ end -}}
+
