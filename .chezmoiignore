@@ -11,6 +11,7 @@
 .aws/
 
 # History & runtime
+.zsh/
 .zsh_history
 .bash_history
 .zsh_sessions/

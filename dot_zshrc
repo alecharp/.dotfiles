@@ -29,5 +29,5 @@ _cache_completion helmfile helmfile completion zsh
 _cache_completion mise   mise completion zsh
 
 autoload -Uz compinit && compinit
-source <(fzf --zsh)
+_cache_completion fzf fzf --zsh
 compdef _git gbs
