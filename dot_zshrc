@@ -7,8 +7,6 @@ eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
 
-zstyle ':autocomplete:*' default-context history-incremental-search-backward
-
 # completions — cache generated scripts, regenerate only when binary changes
 _cache_completion() {
   local cmd="$1"; shift
