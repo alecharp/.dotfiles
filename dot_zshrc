@@ -5,6 +5,7 @@
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
@@ -29,5 +30,4 @@ _cache_completion helmfile helmfile completion zsh
 _cache_completion mise   mise completion zsh
 
 autoload -Uz compinit && compinit
-_cache_completion fzf fzf --zsh
 compdef _git gbs
