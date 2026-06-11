@@ -1,19 +1,10 @@
 [user]
   name = Adrien Lecharpentier
-{{ if eq .chezmoi.hostname "cloudbees-core" -}}
-  email = alecharpentier@cloudbees.com
-  signingkey = FC01F3AB91173B6D
-{{- else -}}
   email = adrien.lecharpentier@gmail.com
   signingkey = DE9A280C8EF8A788C8A7A17D4C70D6E1B912711B
-{{- end }}
 
-[includeIf "gitdir:~/workspaces/alecharp/"]
-  path = "~/.gitconfig_personal"
-[includeIf "gitdir:~/workspaces/jenkinsci/"]
-  path = "~/.gitconfig_personal"
-[includeIf "gitdir:~/workspaces/jenkins-infra/"]
-  path = "~/.gitconfig_personal"
+[includeIf "gitdir:~/workspaces/cloudbees/"]
+  path = "~/.gitconfig_work"
 
 
 [alias]
