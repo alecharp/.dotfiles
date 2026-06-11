@@ -28,4 +28,3 @@ _cache_completion helmfile helmfile completion zsh
 _cache_completion mise   mise completion zsh
 
 autoload -Uz compinit && compinit
-compdef _git gbs
