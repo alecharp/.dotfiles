@@ -6,7 +6,6 @@
 [includeIf "gitdir:~/workspaces/cloudbees/"]
   path = "~/.gitconfig_work"
 
-
 [alias]
   br = "branch"
   ci = "commit"
@@ -14,13 +13,16 @@
   fix = "commit --fixup"
 
   st = "status -u"
-  s =  "status -su --branch"
+  s = "status -su --branch"
 
   co = "checkout"
   sw = "switch"
-  l = "log --oneline"
+  l = "log --graph --pretty=custom"
+  ll = "log --stat --abbrev-commit"
+  lc = "shortlog --summary --numbered"
 
   di = "diff"
+  cp = "cherry-pick"
 
 [color]
   ui = auto
@@ -39,22 +41,34 @@
   gpgsign = true
   cleanup = "strip"
 
-[tag]
-  gpgsign = true
-
 [core]
   editor = "nvim"
   autocrlf = false
-  safecrlf = true
+  filemode = true
   ignorecase = false
   excludesfile = "~/.gitignore"
+  trustctime = false
+
+[diff]
+  colorMoved = default
+  indentHeuristic = true
+  submodule = log
+  wordRegex = "[A-Za-z0-9]+|[^[:space:]]"
 
 [fetch]
   prune = true
   pruneTags = true
+  fsckobjects = true
 
 [init]
   defaultBranch = "main"
+
+[log]
+  date = "format:%a %b %-d %Y @ %-I:%M %p"
+  decorate = yes
+
+[pretty]
+  custom = "%C(magenta)%h%C(red)%d %C(brightblue)%ar %C(green)%s %C(brightblue)(%an)"
 
 [pull]
   rebase = merges
@@ -63,26 +77,27 @@
 [push]
   autoSetupRemote = true
   default = upstream
+  followTags = true
 
 [rebase]
   autosquash = true
   autostash = true
 
-[status]
-  aheadBehind = true
-  showUntrackedFiles = normal
-
 [rerere]
   enabled = true
-
-[diff]
-  submodule = log
-
-[submodule]
-  recurse = true
+  autoupdate = true
 
 {{ if lookPath "opscore" -}}
 [secrets]
   providers = opscore security run git-secrets-provider -q
 {{ end -}}
 
+[status]
+  aheadBehind = true
+  showUntrackedFiles = normal
+
+[submodule]
+  recurse = true
+
+[tag]
+  gpgsign = true
