@@ -1,5 +1,6 @@
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/.exports ]] && source $HOME/.exports
+[[ -f $HOME/.functions ]] && source $HOME/.functions
 
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
@@ -7,13 +8,26 @@ eval "$(starship init zsh)"
 
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
-# completions — fpath must be set before compinit, compdef usable after
+# completions — cache generated scripts, regenerate only when binary changes
+_cache_completion() {
+  local cmd="$1"; shift
+  local cache="$HOME/.zsh/completions/_${cmd}"
+  local bin="$(command -v "$cmd" 2>/dev/null)"
+  if [[ -z "$bin" ]]; then return; fi
+  if [[ ! -f "$cache" || "$bin" -nt "$cache" ]]; then
+    mkdir -p "$HOME/.zsh/completions"
+    "$@" > "$cache" 2>/dev/null
+  fi
+}
+
+fpath=($HOME/.zsh/completions $fpath)
+_cache_completion gh     gh completion -s zsh
+_cache_completion docker docker completion zsh
+_cache_completion kubectl kubectl completion zsh
+_cache_completion helm   helm completion zsh
+_cache_completion helmfile helmfile completion zsh
+_cache_completion mise   mise completion zsh
+
 autoload -Uz compinit && compinit
-source <(gh completion -s zsh)
-source <(docker completion zsh)
-source <(kubectl completion zsh)
-source <(helm completion zsh)
-source <(helmfile completion zsh)
-source <(mise completion zsh)
 source <(fzf --zsh)
 compdef _git gbs
