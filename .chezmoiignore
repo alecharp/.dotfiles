@@ -1,0 +1,35 @@
+# Secrets
+.zshenv
+.vault-token
+.secrets-api
+.claude.json
+.claude.json.backup
+
+# Auth tokens written by tools
+.config/gh/hosts.yml
+.config/gcloud/
+.kube/
+.aws/
+
+# History & runtime
+.zsh_history
+.bash_history
+.zsh_sessions/
+.zcompdump
+.zcompcache/
+.cache/
+.docker/
+
+# gnupg key material
+.gnupg/pubring.kbx
+.gnupg/trustdb.gpg
+.gnupg/random_seed
+.gnupg/private-keys-v1.d/
+
+# macOS noise
+.DS_Store
+**/.DS_Store
+
+# npm/node runtime
+.npm/
+.config/configstore/
