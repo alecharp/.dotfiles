@@ -1,0 +1,90 @@
+[user]
+  name = Adrien Lecharpentier
+  email = alecharpentier@cloudbees.com
+  signingkey = FC01F3AB91173B6D
+
+[includeIf "gitdir:~/workspaces/alecharp/"]
+  path = "~/workspaces/alecharp/.gitconfig"
+[includeIf "gitdir:~/workspaces/jenkinsci/"]
+  path = "~/workspaces/jenkinsci/.gitconfig"
+[includeIf "gitdir:~/workspaces/jenkins-infra/"]
+  path = "~/workspaces/jenkins-infra/.gitconfig"
+
+
+[alias]
+  br = "branch"
+  ci = "commit"
+  amend = "commit --amend --no-edit"
+  fix = "commit --fixup"
+
+  st = "status -u"
+  s =  "status -su --branch"
+
+  co = "checkout"
+  sw = "switch"
+  l = "log --oneline"
+
+  di = "diff"
+
+[color]
+  ui = auto
+[color "status"]
+  added = "green"
+  changed = "yellow"
+  untracked = "white"
+  ignored = "blue"
+[color "diff"]
+  meta = "yellow"
+
+[column]
+  ui = "auto"
+
+[commit]
+  gpgsign = true
+  cleanup = "strip"
+
+[tag]
+  gpgsign = true
+
+[core]
+  editor = "nvim"
+  autocrlf = false
+  savecrlf = true
+  ignorecase = false
+  excludesfile = "~/.gitignore"
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[init]
+  defaultBranch = "main"
+
+[pull]
+  rebase = merges
+  prune = true
+
+[push]
+  autoSetupRemote = true
+  default = upstream
+
+[rebase]
+  autosquash = true
+  autostash = true
+
+[status]
+  aheadBehind = true
+  showUntrackedFiles = normal
+
+[rerere]
+  enabled = true
+
+[diff]
+  submodule = log
+
+[submodule]
+  recurse = true
+
+[secrets]
+  providers = opscore security run git-secrets-provider -q
+
