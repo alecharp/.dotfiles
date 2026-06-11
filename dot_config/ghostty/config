@@ -1,0 +1,9 @@
+font-family = "JetBrains Mono"
+font-feature = +liga
+font-size = 12
+
+mouse-hide-while-typing = true
+
+keybind = ctrl+shift+up=scroll_page_up
+keybind = ctrl+shift+down=scroll_page_down
+

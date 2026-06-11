@@ -1,0 +1,64 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+command_timeout = 250
+format = """[$directory$kubernetes$git_state$git_branch$git_commit$git_status$java]($style)
+$character"""
+
+[character]
+error_symbol = "[⨯](bold red)"
+success_symbol = "[→](bold cyan)"
+
+[directory]
+truncation_length = 2
+truncation_symbol = ".../"
+repo_root_style = "bold cyan"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+format = "[$branch]($style) "
+style = "italic cyan"
+only_attached = true
+ignore_branches = ['master', 'main']
+
+[git_commit]
+format = '[$hash]($style) '
+style = "italic cyan"
+tag_disabled = false
+tag_symbol = ''
+
+[git_state]
+
+[git_status]
+format = "[$all_status]($style)"
+style = "cyan"
+ahead = "↑${count} "
+diverged = "↑${ahead_count}↓${behind_count} "
+behind = "↓${count} "
+conflicted = "↔ "
+up_to_date = "✓ "
+untracked = "? "
+modified = "! "
+stashed = ""
+staged = ""
+renamed = ""
+deleted = ""
+
+[java]
+format = "[${version}]($style)"
+version_format = "v${major}"
+style = "bold blue"
+
+[kubernetes]
+detect_files = ['helmfile.yaml', 'Chart.yaml']
+disabled = false
+format = '[$symbol](bright-black) [$context( \($namespace\))]($style) '
+symbol = '⎈'
+
+[[kubernetes.contexts]]
+context_pattern = "^docker*"
+context_alias = "local"
+style = "italic blue"
+
