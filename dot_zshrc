@@ -9,6 +9,7 @@ zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
 # completions
 [[ -d "${HOME}/.docker/completions" ]] && fpath=("${HOME}/.docker/completions" $fpath)
+autoload -Uz compinit && compinit
 source <(gh completion -s zsh)
 source <(docker completion zsh)
 source <(kubectl completion zsh)
@@ -16,6 +17,5 @@ source <(helm completion zsh)
 source <(helmfile completion zsh)
 source <(mise completion zsh)
 source <(fzf --zsh)
-autoload -Uz compinit && compinit
 
 compdef _git gbs
