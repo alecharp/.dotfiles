@@ -2,10 +2,7 @@
 [[ -f $HOME/.exports ]] && source $HOME/.exports
 [[ -f $HOME/.functions ]] && source $HOME/.functions
 
-eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
-eval "$(starship init zsh)"
-source <(fzf --zsh)
 
 # completions — cache generated scripts, regenerate only when binary changes
 _cache_completion() {
@@ -28,3 +25,6 @@ _cache_completion helmfile helmfile completion zsh
 _cache_completion mise   mise completion zsh
 
 autoload -Uz compinit && compinit
+eval "$(starship init zsh)"
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
