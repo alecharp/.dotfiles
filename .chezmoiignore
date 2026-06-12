@@ -3,6 +3,7 @@
 .secrets-api
 .claude.json
 .claude.json.backup
+.claude/settings.local.json
 
 # Auth tokens written by tools
 .config/gh/hosts.yml
