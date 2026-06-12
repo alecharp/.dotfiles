@@ -1,15 +1,14 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Inserts a blank line between shell prompts
 add_newline = true
 command_timeout = 250
-format = """[$directory$kubernetes$git_state$git_branch$git_commit$git_status$java]($style)
+format = """$directory$kubernetes$git_state$git_branch$git_commit$git_status$java$nodejs$helm
 $character"""
 
 [character]
-error_symbol = "[⨯](bold red)"
-success_symbol = "[→](bold cyan)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
 
 [directory]
 truncation_length = 2
@@ -47,9 +46,18 @@ renamed = ""
 deleted = ""
 
 [java]
-format = "[${version}]($style)"
+format = "[${version}]($style) "
 version_format = "v${major}"
 style = "bold blue"
+
+[nodejs]
+format = "[node ${version}]($style) "
+version_format = "v${major}"
+style = "bold green"
+
+[helm]
+format = "[helm ${version}]($style) "
+style = "bold yellow"
 
 [kubernetes]
 detect_files = ['helmfile.yaml', 'Chart.yaml']
@@ -61,4 +69,3 @@ symbol = '⎈'
 context_pattern = "^docker*"
 context_alias = "local"
 style = "italic blue"
-
