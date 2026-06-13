@@ -26,5 +26,5 @@ _cache_completion mise   mise completion zsh
 
 autoload -Uz compinit && compinit
 eval "$(starship init zsh)"
-source <(fzf --zsh)
+eval "$(tv init zsh)"
 eval "$(zoxide init zsh)"
