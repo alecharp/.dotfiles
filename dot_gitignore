@@ -1,1 +1,28 @@
+### Maven
+target/
+
+### Jenkins
+work/
+
+### Mise
+mise.toml
+
+# Backup & swap files
+*~
+*.swp
+*.swo
+
+### JetBrains (IntelliJ, etc.)
+.idea/
+*.iws
+
+### JVM crash logs
+hs_err_pid*
+replay_pid*
+
+### Generic logs
+*.log
+
+### Claude
 **/.claude/settings.local.json
+**/.claude/CLAUDE.md
