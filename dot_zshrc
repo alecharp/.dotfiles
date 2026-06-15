@@ -2,6 +2,19 @@
 [[ -f $HOME/.exports ]] && source $HOME/.exports
 [[ -f $HOME/.functions ]] && source $HOME/.functions
 
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions
+
 eval "$(mise activate zsh)"
 
 # completions — cache generated scripts, regenerate only when binary changes
@@ -27,4 +40,60 @@ _cache_completion mise   mise completion zsh
 autoload -Uz compinit && compinit
 eval "$(starship init zsh)"
 eval "$(tv init zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
+
+#==============================================================================
+# ⚡  Zsh options, key-bindings, history
+#==============================================================================
+
+# nice defaults ---------------------------------------------------------------
+setopt auto_cd interactivecomments extended_glob print_exit_value
+setopt append_history inc_append_history share_history
+setopt hist_ignore_dups hist_ignore_space notify
+setopt complete_in_word
+setopt no_list_ambiguous
+setopt no_beep
+setopt IGNORE_EOF                       # disable default Ctrl+D (logout)
+
+unsetopt correct correct_all            # no automatic spelling correction
+
+#==============================================================================
+# ⚡  completion configuration
+#==============================================================================
+
+# Completion styling ----------------------------------------------------------
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcache"
+# fzf-tab overrides menu behavior via compadd hook; this is the fallback when fzf-tab is toggled off
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*' matcher-list \
+      'm:{a-zA-Z}={A-Za-z}' \
+      'r:|[._-]=* r:|=*' \
+      'l:|=* r:|=*'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+zstyle ':completion:*:descriptions' format $'\e[2;37mCompleting %d\e[m'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+#==============================================================================
+# ⚡  fzf configuration
+#==============================================================================
+# FZF_DEFAULT_OPTS: used by native fzf invocations (tv, tmux-fzf-links, fzf CLI).
+# fzf-tab ignores this and uses its own fzf-flags zstyle instead.
+
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} \
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:*'             fzf-flags --layout=reverse --info=inline --color=fg:1,fg+:2 --bind=tab:accept
+zstyle ':fzf-tab:*'             switch-group '<' '>'
+zstyle ':fzf-tab:*'             show-group none
+zstyle ':fzf-tab:*'             single-group header
+zstyle ':fzf-tab:*'             fzf-command fzf
+
+zinit cdreplay -q
+

@@ -1,4 +1,3 @@
-alias cd='z'
 alias gbs='git bisect'
 alias h='helm'
 alias hf='helmfile'
