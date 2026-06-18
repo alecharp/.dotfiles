@@ -10,3 +10,11 @@ alias ll='eza -lha --group-directories-first --icons=auto'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias vi='nvim'
 alias vim='nvim'
+
+alias -s md='bat'
+alias -s adoc='bat'
+alias -s yaml='bat -l yaml'
+
+alias -g J='| jq'
+alias -g C='| pbcopy'
+alias -g L='| less'
