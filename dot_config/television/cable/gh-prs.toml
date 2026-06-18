@@ -39,6 +39,10 @@ description = "Open the PR in the browser"
 command = "gh pr view {strip_ansi|split:#:1|split:   :0} --web"
 mode = "execute"
 
+[actions.close]
+description = "Close the selected pull request"
+command = "gh pr close {strip_ansi|split:#:1|split:   :0}"
+
 [actions.checkout]
 description = "Checkout the PR branch locally"
 command = "gh pr checkout {strip_ansi|split:#:1|split:   :0}"
