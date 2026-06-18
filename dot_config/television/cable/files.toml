@@ -11,9 +11,10 @@ command = "bat -n --color=always '{}'"
 env = { BAT_THEME = "ansi" }
 
 [keybindings]
-ctrl-e = "actions:edit"
+enter = "actions:edit"
 
 [actions.edit]
 description = "Edit file"
-command = "nvim '{}'"
-mode ="fork"
+command = "${EDITOR:-nvim} '{}'"
+mode = "fork"
+shell = "zsh"
