@@ -3,25 +3,6 @@
     "type": "command",
     "command": "starship statusline claude-code"
   },
-  "enabledPlugins": {
-    "seco-triage@cloudbees-marketplace": true,
-    "java-cbci@claude-java-stack": true
-  },
-  "extraKnownMarketplaces": {
-    "cloudbees-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "cloudbees/cloudbees-claude-plugins"
-      }
-    },
-    "claude-java-stack": {
-      "source": {
-        "source": "github",
-        "repo": "cloudbees/claude-java-stack"
-      }
-    }
-  },
-  "effortLevel": "xhigh",
   "attribution": {
     "commit": "",
     "pr": ""
