@@ -1,5 +1,7 @@
+[settings]
+env_shell_expand = true
+
 [tools]
 java = "temurin-25"
 maven = "3.9"
 node = "lts"
-
