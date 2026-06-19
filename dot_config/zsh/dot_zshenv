@@ -1,0 +1,33 @@
+# Language
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+# XDG base directories
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
+# Editors
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Better manpages
+export PAGER="less"
+command -v bat &>/dev/null && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# GPG
+export GPG_TTY="$(tty)"
+if command -v gpgconf >/dev/null 2>&1; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
+
+# Starship
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship.toml"
+
+# ZInit
+export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Workspace location
+export WORKSPACE_DIR="${HOME}/workspaces"
+

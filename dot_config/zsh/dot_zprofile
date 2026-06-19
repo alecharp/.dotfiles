@@ -1,0 +1,3 @@
+# Personal binaries and scripts
+export PATH="${HOME}/.local/bin:${PATH}"
+
