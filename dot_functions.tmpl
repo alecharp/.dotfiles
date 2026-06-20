@@ -1,3 +1,0 @@
-jira-auth() {
-  export JIRA_API_TOKEN="$(gpg --decrypt {{ .chezmoi.sourceDir }}/secrets/encrypted_jira-api-token.asc 2>/dev/null)"
-}
