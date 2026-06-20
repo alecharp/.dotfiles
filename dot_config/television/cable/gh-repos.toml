@@ -1,0 +1,8 @@
+[metadata]
+name = "gh-repos"
+description = "Browse repositories to be cloned"
+requirements = ["gh", "jq"]
+
+[source]
+command = "gh repo list jenkinsci --json nameWithOwner | jq -r 'sort_by(.nameWithOwner) | .[] | .nameWithOwner'"
+
