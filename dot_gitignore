@@ -25,4 +25,5 @@ replay_pid*
 
 ### Claude
 **/.claude/settings.local.json
-**/.claude/CLAUDE.md
+**/CLAUDE.local.md
+
