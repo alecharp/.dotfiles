@@ -31,3 +31,6 @@ export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Workspace location
 export WORKSPACE_DIR="${HOME}/workspaces"
 
+# GH Dash configuration
+export GH_DASH_CONFIG="${XDG_CONFIG_HOME}/gh/dash.yaml"
+
