@@ -11,5 +11,3 @@ keybind = ctrl+shift+down=scroll_page_down
 
 macos-option-as-alt = true
 
-command = /bin/sh -c "tmux attach-session 2>/dev/null || tmux new-session"
-
