@@ -1,3 +1,5 @@
+command = /bin/zsh -l -c 'tv sesh'
+
 font-family = "JetBrains Mono"
 font-feature = +liga
 font-size = 12
