@@ -31,8 +31,21 @@ Language: French (native), English
 - functional programming, small functions, early returns
 - type definitions, error handling, tests for critical paths
 - no over-engineering, no ignored errors
+- prefer `Optional` and checked exceptions over nulls or unchecked exceptions
 - production-grade: proper logging, modern patterns
 - after editing, read `git diff`, verify every changed line traces to the request
+
+## Logging
+
+- Logback
+- `WARN` for caught exceptions
+- `INFO` for branching decisions
+- `DEBUG` only when actively debugging
+
+## Conventions
+
+- type-based package structure (e.g. `service/`, `controller/`, `repository/`)
+- test classes follow Maven Surefire (`*Test.java`, `Test*.java`, `*Tests.java`) and Failsafe (`*IT.java`, `IT*.java`) naming patterns
 
 ## Environment
 
@@ -52,13 +65,22 @@ Language: French (native), English
 ## Commits
 
 - conventional commits format
+- commit subject must never exceed 50 characters, body lines must never exceed 72 characters
+- commit footers should include `Co-Authored-By` when taking suggestions from reviewers
 - group related changes in a single commit
 - never push — manual only
+
+## Branch naming
+
+- format: `type/scope-description` (e.g. `fix/login-npe`, `feat/user-catalog`)
+- matches conventional commit types: `fix`, `feat`, `refactor`, `chore`, `docs`, `test`
 
 ## Testing
 
 - run `mvn verify` before committing
 - run a single test with `mvn verify -Dtest=<ClassName>` when possible
+- JUnit 5 when already configured by the project, JUnit 4 otherwise
+- AssertJ for assertions when already configured by the project, Hamcrest otherwise
 
 ## Sessions naming
 
