@@ -70,13 +70,3 @@ brew install neovim gh
 ----
 
 Plugin managers (zinit, tpm) are bootstrapped automatically via `.chezmoiexternal.toml` on first `chezmoi apply`.
-
-=== JIRA credentials
-
-The JIRA API token is stored GPG-encrypted in the repository and generated into `~/.zshenv` on apply.
-The token is not loaded at shell startup — run `jira-auth` in your terminal when you need it:
-
-[source,bash]
-----
-jira-auth
-----
