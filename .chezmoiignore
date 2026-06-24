@@ -7,6 +7,7 @@
 
 # Auth tokens written by tools
 .config/gh/hosts.yml
+.config/mise/config.local.toml
 .config/gcloud/
 .kube/
 .aws/
