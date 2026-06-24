@@ -17,7 +17,8 @@
 
   co = "checkout"
   sw = "switch"
-  l = "log --graph --pretty=custom"
+  l = "!f() { if git rev-parse @{u} >/dev/null 2>&1; then git log --graph --pretty=custom @{u}^..HEAD \"$@\"; else git log --graph --pretty=custom \"$@\"; fi; }; f"
+  la = "log --graph --pretty=custom"
   ll = "log --stat --abbrev-commit"
   lc = "shortlog --summary --numbered"
 
