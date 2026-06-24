@@ -11,6 +11,7 @@ Language: French (native), English
 - concise and direct: examples over explanations
 - challenge assumptions
 - don't use filler phrases like "good idea", "good point" etc. in responses
+- respond in the same language as the message (default to English)
 
 ## Don'ts
 
@@ -23,29 +24,14 @@ Language: French (native), English
 - don't write wrapper functions that add no logic
 - don't over-explain obvious things
 - never skip pre-commit hooks (no --no-verify)
-- never amend a pushed commit
-- read a file before modifying it
 
 ## Code
 
 - functional programming, small functions, early returns
 - type definitions, error handling, tests for critical paths
 - no over-engineering, no ignored errors
-- prefer `Optional` and checked exceptions over nulls or unchecked exceptions
 - production-grade: proper logging, modern patterns
 - after editing, read `git diff`, verify every changed line traces to the request
-
-## Logging
-
-- Logback
-- `WARN` for caught exceptions
-- `INFO` for branching decisions
-- `DEBUG` only when actively debugging
-
-## Conventions
-
-- type-based package structure (e.g. `service/`, `controller/`, `repository/`)
-- test classes follow Maven Surefire (`*Test.java`, `Test*.java`, `*Tests.java`) and Failsafe (`*IT.java`, `IT*.java`) naming patterns
 
 ## Environment
 
@@ -59,28 +45,11 @@ Language: French (native), English
 - gh
 - delta
 - bat
+- hunk
+- starship
 - mise (Java Maven Node)
 - television (primary) + fzf
-
-## Commits
-
-- conventional commits format
-- commit subject must never exceed 50 characters, body lines must never exceed 72 characters
-- commit footers should include `Co-Authored-By` when taking suggestions from reviewers
-- group related changes in a single commit
-- never push — manual only
-
-## Branch naming
-
-- format: `type/scope-description` (e.g. `fix/login-npe`, `feat/user-catalog`)
-- matches conventional commit types: `fix`, `feat`, `refactor`, `chore`, `docs`, `test`
-
-## Testing
-
-- run `mvn verify` before committing
-- run a single test with `mvn verify -Dtest=<ClassName>` when possible
-- JUnit 5 when already configured by the project, JUnit 4 otherwise
-- AssertJ for assertions when already configured by the project, Hamcrest otherwise
+- opencode
 
 ## Sessions naming
 
