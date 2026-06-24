@@ -2,7 +2,7 @@
 :toc: left
 :icons: font
 
-Personal dotfiles managed with https://www.chezmoi.io/[chezmoi], covering shell (zsh), git, neovim, ghostty, mise, and GPG configuration.
+Personal dotfiles managed with https://www.chezmoi.io/[chezmoi], covering shell (zsh), git, neovim, ghostty, tmux, starship, television, sesh, mise, GPG, and AI tooling (Claude Code, OpenCode).
 Secrets are GPG-encrypted and stored in the repository — a YubiKey is required to decrypt them on apply.
 
 == Setup a new environment
@@ -44,7 +44,32 @@ These tools write their own credential files and are excluded from the repositor
 [source,bash]
 ----
 gh auth login
+docker login          # if using Docker
+gcloud auth login     # if using Google Cloud
 ----
+
+== Tools not managed by these dotfiles
+
+These tools are used in aliases, configs, or shell init, but their installation is not managed here.
+Install them before applying:
+
+[source,bash]
+----
+# macOS — core shell tools
+brew install bat eza ripgrep fzf zoxide delta lf
+
+# Terminal & session management
+brew install ghostty tmux sesh television starship hunk
+
+# Git & dev tools
+brew install neovim gh
+
+# Runtimes — managed by mise after apply
+# mise will install Java (temurin-25), Maven 3.9, and Node LTS
+# automatically from ~/.config/mise/config.toml
+----
+
+Plugin managers (zinit, tpm) are bootstrapped automatically via `.chezmoiexternal.toml` on first `chezmoi apply`.
 
 === JIRA credentials
 
