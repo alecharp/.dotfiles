@@ -9,6 +9,7 @@
 - one logical change per commit
 - subject ≤ 50 chars, body lines ≤ 72 chars
 - use `fixup!` commits for WIP; fold with `rebase --autosquash` before pushing
+- commits that fix unpushed commits must be squashed immediately after the edit
 - group related changes in a single commit
 - include `Co-Authored-By` footer when taking suggestions from reviewers
 
