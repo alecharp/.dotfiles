@@ -35,3 +35,9 @@
 # npm/node runtime
 .npm/
 .config/configstore/
+
+# Skills symlink: skip if target directory doesn't exist
+{{ $skillsTarget := printf "%s/alecharp/claude-skills" (env "WORKSPACE_DIR") -}}
+{{ if not (stat $skillsTarget) -}}
+.claude/skills
+{{ end -}}
