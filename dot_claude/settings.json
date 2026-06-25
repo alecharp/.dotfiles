@@ -78,5 +78,11 @@
   "statusLine": {
     "type": "command",
     "command": "starship statusline claude-code"
+  },
+  "model": "us.anthropic.claude-sonnet-4-6",
+  "awsAuthRefresh": "aws sso login --profile $AWS_PROFILE",
+  "env": {
+    "CLAUDE_CODE_USE_BEDROCK": "true",
+    "AWS_PROFILE": "cloudbees-bedrock-claude-infra-bedrock-claude-user"
   }
 }
