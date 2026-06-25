@@ -4,7 +4,8 @@ description = "List and switch between tmux windows"
 requirements = [ "tmux",]
 
 [source]
-command = "tmux list-windows -a -F '#{session_name}:#{window_index}\t#{window_name}\t#{pane_current_command}'"
+no_sort = true
+command = "tmux list-windows -a -F '#{window_activity}:#{window_last_flag}:#{session_name}:#{window_index}\t#{window_name}\t#{pane_current_command}' | sort -t: -k2 -rn -k1 -rn | sed 's/^[^:]*:[^:]*://'"
 display = "{split:\t:0} - {split:\t:1} ({split:\t:2})"
 output = "{split:\t:0}"
 
@@ -17,7 +18,7 @@ x = "actions:kill"
 
 [actions.select]
 description = "Switch to the selected window"
-command = "tmux select-window -t '{split:\t:0}'"
+command = "tmux switch-client -t '{split:\t:0}'"
 mode = "execute"
 
 [actions.kill]
