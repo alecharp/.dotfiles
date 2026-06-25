@@ -19,6 +19,7 @@
 
 ## Conventions
 
+- always use explicit imports; never use star imports (`import foo.*`) or fully qualified class names inline
 - type-based package structure (e.g. `service/`, `controller/`, `repository/`)
 - test classes follow Maven Surefire (`*Test.java`, `Test*.java`, `*Tests.java`) and Failsafe (`*IT.java`, `IT*.java`) naming patterns
 
