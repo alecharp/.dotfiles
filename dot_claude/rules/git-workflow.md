@@ -12,6 +12,7 @@
 - commits that fix unpushed commits must be squashed immediately after the edit
 - group related changes in a single commit
 - include `Co-Authored-By` footer when taking suggestions from reviewers
+- `:tada:` is the acceptable commit type for the very first commit of a new git repository
 
 ## Branching
 
