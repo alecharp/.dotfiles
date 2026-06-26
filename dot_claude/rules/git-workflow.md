@@ -12,6 +12,7 @@
 - commits that fix unpushed commits must be squashed immediately after the edit
 - group related changes in a single commit
 - stage specific files only — never `git add -A`; use `git add -p` to split changes per commit
+- never pass `--no-gpg-sign` to any commit command
 - include `Co-Authored-By` footer when taking suggestions from reviewers
 - `:tada:` is the acceptable commit type for the very first commit of a new git repository
 
