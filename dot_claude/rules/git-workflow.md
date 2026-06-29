@@ -26,6 +26,7 @@
 
 ## Landing a PR
 
+- always push branch to my personal account, creating a fork if required
 - squash merge into main
 - delete the remote branch immediately after merge; clean up local with `git branch -d`
 
