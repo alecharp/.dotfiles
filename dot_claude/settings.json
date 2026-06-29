@@ -1,5 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "awsAuthRefresh": "aws sso login --profile $AWS_PROFILE",
+  "env": {
+    "CLAUDE_CODE_USE_BEDROCK": "true",
+    "AWS_PROFILE": "cloudbees-bedrock-claude-infra-bedrock-claude-user"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
@@ -75,14 +80,9 @@
       "Edit(**/id_ed25519*)"
     ]
   },
+  "model": "us.anthropic.claude-opus-4-8",
   "statusLine": {
     "type": "command",
     "command": "starship statusline claude-code"
-  },
-  "model": "us.anthropic.claude-sonnet-4-6",
-  "awsAuthRefresh": "aws sso login --profile $AWS_PROFILE",
-  "env": {
-    "CLAUDE_CODE_USE_BEDROCK": "true",
-    "AWS_PROFILE": "cloudbees-bedrock-claude-infra-bedrock-claude-user"
   }
 }
