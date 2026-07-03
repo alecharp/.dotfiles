@@ -55,6 +55,14 @@ alias gbss='git bisect start'
 alias gbsr='git bisect reset'
 
 # ================================================
+# Worktrunk
+# ================================================
+
+alias wtl='wt list'
+alias wtr='wt remove'
+alias wts='wt switch'
+
+# ================================================
 # Helm / Helmfile
 # ================================================
 
