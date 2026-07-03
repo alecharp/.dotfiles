@@ -104,3 +104,5 @@ source "${ZDOTDIR}/plugins.zsh"
 # Prompt and theme configuration
 source "${ZDOTDIR}/prompt.zsh"
 
+# Setup worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
