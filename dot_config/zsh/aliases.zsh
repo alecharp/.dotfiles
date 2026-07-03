@@ -78,6 +78,7 @@ alias -s yaml='bat'
 alias -g J='| jq'
 alias -g C='| pbcopy'
 alias -g L='| $PAGER'
+alias -g G=' | grep'
 
 alias -g NE='2>/dev/null'
 alias -g NUL='&>/dev/null'
