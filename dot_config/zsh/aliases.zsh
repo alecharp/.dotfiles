@@ -50,6 +50,9 @@ alias vim='nvim'
 # ================================================
 
 alias gbs='git bisect'
+compdef _git gbs=git-bisect
+alias gbss='git bisect start'
+alias gbsr='git bisect reset'
 
 # ================================================
 # Helm / Helmfile
