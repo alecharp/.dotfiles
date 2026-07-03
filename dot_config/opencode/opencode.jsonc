@@ -3,6 +3,11 @@
   "keybinds": {
     "input_newline": "shift+enter,ctrl+enter"
   },
+  "instructions": [
+    "~/.claude/rules/chezmoi.md",
+    "~/.claude/rules/git-workflow.md",
+    "~/.claude/rules/java.md"
+  ],
   "permission": {
     "bash": {
       "*": "ask",
@@ -52,10 +57,13 @@
       "gh release list*": "allow",
       "git push --force*": "deny",
       "git push --force-with-lease*": "deny",
-      "git push -f*": "deny"
+      "git push -f*": "deny",
+      "sops decrypt*": "deny"
     },
     "read": {
-      "*": "ask",
+      "**": "allow",
+      "../**": "ask",
+      "./../**": "ask",
       ".env": "deny",
       "**/.env.*": "deny",
       "**/*.pem": "deny",
