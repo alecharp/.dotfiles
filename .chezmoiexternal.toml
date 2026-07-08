@@ -10,3 +10,8 @@
     url = "https://github.com/zdharma-continuum/zinit.git"
     refreshPeriod = "168h"
     clone.args = ["--depth", "1"]
+
+['{{ (env "WORKSPACE_DIR") | trimPrefix (env "HOME") | trimPrefix "/" }}/alecharp/toolbox']
+    type = "git-repo"
+    url = "https://github.com/alecharp/toolbox.git"
+    clone.args = ["--depth", "1"]
