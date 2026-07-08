@@ -6,7 +6,7 @@
 alias ls='eza --icons=auto --group-directories-first'
 alias ll='ls -lh'
 alias la='ls -lah --git'
-alias tree='eza --tree --icons'
+alias lt='eza --tree --icons'
 
 # Reuse ls completion for eza
 compdef eza=ls
