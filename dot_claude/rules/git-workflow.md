@@ -15,6 +15,10 @@
 - include `Co-Authored-By` footer when taking suggestions from reviewers
 - `:tada:` is the acceptable commit type for the very first commit of a new git repository
 
+## Don'ts
+
+- never add `Co-Authored-By` footer from AI code assistants (opencode, Copilot, etc.)
+
 ## Branching
 
 - format: `type/scope-description` (e.g. `fix/login-npe`, `feat/user-catalog`)
