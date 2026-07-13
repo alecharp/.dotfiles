@@ -30,7 +30,7 @@ zstyle ':fzf-tab:*'             fzf-command fzf
 fzf_file_no_hidden() {
   local cmd result
   cmd="${FZF_DEFAULT_COMMAND/--hidden /}"
-  result=$(eval "${cmd:-find . type f}" | fzf) && LBUFFER+="${result}"
+  result=$(eval "${cmd:-find . -type f}" | fzf) && LBUFFER+="${result}"
   zle reset-prompt
 }
 zle -N fzf_file_no_hidden
