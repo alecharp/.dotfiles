@@ -1,6 +1,9 @@
 [settings]
 env_shell_expand = true
 
+[settings.pipx]
+uvx = true
+
 [tools]
 java = "temurin-25"
 maven = "3.9"
