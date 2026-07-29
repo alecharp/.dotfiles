@@ -76,7 +76,6 @@
       "Edit(**/id_ed25519*)"
     ]
   },
-  "model": "us.anthropic.claude-opus-4-8",
   "statusLine": {
     "type": "command",
     "command": "starship statusline claude-code"
