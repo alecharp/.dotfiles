@@ -4,7 +4,6 @@ encryption = "gpg"
     recipient = "adrien.lecharpentier@gmail.com"
 
 [git]
-    autoadd = true
     autocommit = false
     autopush = false
 
@@ -12,4 +11,4 @@ encryption = "gpg"
     secrets = "error"
 
 [diff]
-    pager = "less"
+    pager = "hunk pager"
