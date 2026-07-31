@@ -13,3 +13,6 @@ keybind = ctrl+shift+down=scroll_page_down
 
 macos-option-as-alt = true
 
+window-decoration = false
+window-padding-x = 10
+
