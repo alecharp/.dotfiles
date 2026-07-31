@@ -1,8 +1,8 @@
-worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+worktree-path = "{{ repo_path }}/../{{ repo }}@{{ branch | sanitize }}"
 
 [switch]
 cd = true
 
 [post-switch]
-tmux = "[ -n \"$TMUX\" ] && tmux rename-window {{ branch | sanitize }}"
+tmux = "[ -n \"$TMUX\" ] && tmux rename-window {{ repo }}@{{ branch | sanitize }}"
 
