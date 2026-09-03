@@ -1,3 +1,9 @@
+# Homebrew (must come before path_helper reorders it)
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+fi
+
 # Personal binaries and scripts
 export PATH="${HOME}/.local/bin:${PATH}"
 
